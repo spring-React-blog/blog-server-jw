@@ -44,10 +44,10 @@ public class Board {
 	@JoinColumn(name = "category_id")
 	private Category category;
 
-	@OneToMany
+	@OneToMany(mappedBy = "board")
 	private List<Like> likes = new ArrayList<>();
 
-	@OneToMany(mappedBy = "member")
+	@OneToMany(mappedBy = "board")
 	private List<Reply> replies = new ArrayList<>();
 
 }
