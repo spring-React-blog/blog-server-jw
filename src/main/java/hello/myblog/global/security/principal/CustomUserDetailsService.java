@@ -1,9 +1,7 @@
 package hello.myblog.global.security.principal;
 
+import hello.myblog.domain.member.domain.MemberRepository;
 import lombok.RequiredArgsConstructor;
-import me.golf.blog.domain.member.domain.persist.MemberRepository;
-import me.golf.blog.domain.member.error.MemberNotFoundException;
-import me.golf.blog.global.error.exception.ErrorCode;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

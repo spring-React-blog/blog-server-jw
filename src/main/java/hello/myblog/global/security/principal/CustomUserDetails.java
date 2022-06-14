@@ -1,15 +1,14 @@
 package hello.myblog.global.security.principal;
 
+import hello.myblog.domain.member.domain.Member;
+import hello.myblog.domain.member.domain.Password;
+import hello.myblog.domain.member.domain.RoleType;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Collections;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import me.golf.blog.domain.member.domain.persist.Member;
-import me.golf.blog.domain.member.domain.vo.Email;
-import me.golf.blog.domain.member.domain.vo.Password;
-import me.golf.blog.domain.member.domain.vo.RoleType;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.SpringSecurityCoreVersion;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -22,7 +21,7 @@ public class CustomUserDetails implements UserDetails, Serializable {
     private final long serialVersionUID = SpringSecurityCoreVersion.SERIAL_VERSION_UID;
 
     private Long id;
-    private Email email;
+    private String email;
     private Password password;
     private RoleType role;
 
@@ -38,7 +37,7 @@ public class CustomUserDetails implements UserDetails, Serializable {
 
     @Override
     public String getUsername() {
-        return email.email();
+        return email;
     }
 
     public Long getId() {

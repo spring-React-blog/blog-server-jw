@@ -1,5 +1,7 @@
 package hello.myblog.global.jwt;
 
+정import hello.myblog.domain.member.domain.Member;
+import hello.myblog.domain.member.domain.MemberRepository;
 import hello.myblog.global.jwt.dto.TokenDTO;
 import hello.myblog.global.jwt.vo.AccessToken;
 import hello.myblog.global.jwt.vo.RefreshToken;
@@ -18,11 +20,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.extern.slf4j.Slf4j;
-import me.golf.blog.domain.member.domain.persist.Member;
-import me.golf.blog.domain.member.domain.persist.MemberRepository;
-import me.golf.blog.domain.member.domain.vo.Email;
-import me.golf.blog.domain.member.error.MemberNotFoundException;
-import me.golf.blog.global.error.exception.ErrorCode;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -71,7 +68,7 @@ public class TokenProvider implements InitializingBean {
         long now = (new Date()).getTime();
 
         // 회원 로직 작성 후 완성 예정
-        Member member = memberRepository.findByEmail(Email.from(email)).orElseThrow(() -> {
+        Member member = memberRepository.findByEmail(email).orElseThrow(() -> {
             throw new MemberNotFoundException(ErrorCode.USER_NOT_FOUND);
         });
 
